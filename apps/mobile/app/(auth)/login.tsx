@@ -6,6 +6,7 @@ import { useRouter } from "expo-router";
 import AuthHeaders from "@/components/Auth/AuthHeaders";
 import AuthInput from "@/components/Auth/AuthInput";
 import SocialLoginButton from "@/components/Auth/SocialLoginButton";
+import { images } from "@/assets/images";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 
@@ -58,7 +59,7 @@ export default function Login() {
 
           {/* Forgot Password */}
           <TouchableOpacity className="items-center mt-4">
-            <Text className="text-sm text-primary font-sf-medium">
+            <Text className="text-lg text-primary font-sf-medium">
               Forgot password?
             </Text>
           </TouchableOpacity>
@@ -78,8 +79,7 @@ export default function Login() {
           {/* Social Login Buttons */}
           <View className="flex-row px-6 mt-5 gap-4">
             <SocialLoginButton
-              iconName="logo-google"
-              iconColor="#4285F4"
+              image={images.google}
               onPress={() => {}}
             />
             <SocialLoginButton
@@ -91,11 +91,11 @@ export default function Login() {
 
           {/* Footer: Don't have an account? */}
           <View className="flex-row items-center justify-center mt-6 mb-6">
-            <Text className="text-sm text-light-gray font-sf-regular">
+            <Text className="text-lg text-dark-gray font-sf-regular">
               Don't have an account?{" "}
             </Text>
             <Text
-              className="text-sm text-primary font-sf-bold"
+              className="text-lg text-primary font-sf-bold"
               onPress={() => router.push("/(auth)/sign-up")}
             >
               Sign Up

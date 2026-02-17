@@ -15,23 +15,23 @@ export default function Welcome() {
       <View className="flex-1 items-center justify-center px-6">
         {/* Logo */}
         <Image
-          source={images.logo}
+          source={images.success}
           resizeMode="contain"
-          style={{ width: 120, height: 120 }}
+          // style={{ width: 120, height: 120 }}
         />
 
         {/* Title */}
-        <Text className="text-3xl font-sf-bold text-text mt-6 text-center">
+        {/* <Text className="text-3xl font-sf-bold text-text mt-6 text-center">
           Hello Tocky! 👋
         </Text>
         <Text className="text-3xl font-sf-bold text-text mt-1 text-center">
           Welcome to Stockline
-        </Text>
+        </Text> */}
 
-        {/* Subtitle */}
+        {/* Subtitle
         <Text className="text-sm font-sf-regular text-light-gray mt-4 text-center">
           It's great to have you here
-        </Text>
+        </Text> */}
       </View>
 
       {/* Bottom Button */}

@@ -6,6 +6,7 @@ import { useRouter } from "expo-router";
 import AuthHeaders from "@/components/Auth/AuthHeaders";
 import AuthInput from "@/components/Auth/AuthInput";
 import SocialLoginButton from "@/components/Auth/SocialLoginButton";
+import { images } from "@/assets/images";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 
@@ -65,7 +66,7 @@ export default function SignUp() {
           {/* Divider: Or continue with */}
           <View className="flex-row items-center px-6 mt-8">
             <View className="flex-1 h-px bg-[#E2E8F0]" />
-            <Text className="mx-4 text-sm text-light-gray font-sf-regular">
+            <Text className="mx-4 text-lg text-light-gray font-sf-regular">
               Or continue with
             </Text>
             <View className="flex-1 h-px bg-[#E2E8F0]" />
@@ -74,8 +75,7 @@ export default function SignUp() {
           {/* Social Login Buttons */}
           <View className="flex-row px-6 mt-5 gap-4">
             <SocialLoginButton
-              iconName="logo-google"
-              iconColor="#4285F4"
+              image={images.google}
               onPress={() => {}}
             />
             <SocialLoginButton
@@ -87,11 +87,11 @@ export default function SignUp() {
 
           {/* Footer: Already have an account? */}
           <View className="flex-row items-center justify-center mt-6 mb-6">
-            <Text className="text-sm text-light-gray font-sf-regular">
+            <Text className="text-lg text-dark-gray font-sf-regular">
               Already have an account?{" "}
             </Text>
             <Text
-              className="text-sm text-primary font-sf-bold"
+              className="text-lg text-primary font-sf-bold"
               onPress={() => router.push("/(auth)/login")}
             >
               Sign In

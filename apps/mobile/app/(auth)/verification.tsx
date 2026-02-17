@@ -79,7 +79,7 @@ export default function VerificationScreen() {
               router.back();
             }
           }}
-          className="ml-4 mt-2 w-10 h-10 rounded-full border border-[#E2E8F0] items-center justify-center"
+          className="ml-4 mt-2 w-10 h-10 rounded-xl border border-[#E2E8F0] items-center justify-center"
           activeOpacity={0.7}
         >
           <Ionicons name="chevron-back" size={20} color="#1A1A1A" />
@@ -87,13 +87,13 @@ export default function VerificationScreen() {
 
         {/* Title & Subtitle */}
         <View className="items-center mt-6 px-6">
-          <Text className="text-2xl font-sf-bold text-text">
+          <Text className="text-2xl font-sf-bold text-dark-gray">
             {step === "phone"
               ? "Enter your phone number"
               : "Enter verification code"}
           </Text>
           <Text
-            className="text-sm font-sf-regular text-light-gray mt-2"
+            className="text-lg font-sf-regular text-light-gray mt-2"
             style={{ textAlign: "center", lineHeight: 20 }}
           >
             {step === "phone"

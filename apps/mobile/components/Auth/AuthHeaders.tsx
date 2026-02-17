@@ -15,7 +15,7 @@ export default function AuthHeaders({
 }: AuthHeadersProps) {
   const { width } = useWindowDimensions();
 
-  const logoSize = Math.min(width * 0.22, 90);
+  const logoSize = Math.min(width * 0.9, 360);
 
   return (
     <View className="items-center" style={{ marginTop: 16 }}>
@@ -24,21 +24,21 @@ export default function AuthHeaders({
         resizeMode="contain"
         style={{
           width: logoSize,
-          height: logoSize,
+          // height: logoSize,
         }}
       />
       <Text
-        className="text-2xl font-sf-bold text-text mt-4"
+        className="text-3xl font-sf-bold text-text mt-[-40]"
         style={{ textAlign: "center" }}
       >
         {title}
       </Text>
       <Text
-        className="text-sm font-sf-regular text-light-gray mt-2"
+        className="text-lg font-sf-regular text-light-gray mt-4"
         style={{ textAlign: "center", lineHeight: 20 }}
       >
         {subtitle}
-        <Text className="text-sm font-sf-bold text-primary">
+        <Text className="text-lg font-sf-bold text-primary">
           {highlightedText}
         </Text>
       </Text>

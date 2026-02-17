@@ -18,13 +18,13 @@ export default function AuthInput({
   return (
     <View
       className={cn(
-        "flex-row items-center rounded-xl border bg-white px-4 h-14",
-        isFocused ? "border-primary" : "border-[#E2E8F0]",
+        "flex-row items-center rounded-2xl border bg-white px-4 h-16",
+        isFocused ? "border-primary" : "border-border-gray",
         className
       )}
     >
       <TextInput
-        className="flex-1 text-base font-sf-regular text-text h-full"
+        className="flex-1 text-xl font-sf-regular text-text h-full mb-2"
         placeholderTextColor="#A0AEC0"
         secureTextEntry={secureTextEntry && !isPasswordVisible}
         autoCorrect={false}

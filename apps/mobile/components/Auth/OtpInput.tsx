@@ -16,7 +16,7 @@ export default function OtpInput({ code, activeIndex }: OtpInputProps) {
         return (
           <View
             key={index}
-            className={`flex-1 items-center justify-center rounded-xl border h-14 ${
+            className={`flex-1 items-center justify-center relative rounded-xl border h-14 ${
               isFocused
                 ? "border-primary"
                 : hasValue
@@ -28,7 +28,10 @@ export default function OtpInput({ code, activeIndex }: OtpInputProps) {
             {hasValue ? (
               <Text className="text-2xl font-sf-bold text-text">{digit}</Text>
             ) : isFocused ? (
-              <View className="w-5 h-0.5 bg-primary rounded-full" />
+              <View
+                className="w-5 h-0.5 bg-primary rounded-full"
+                style={{ position: "absolute", bottom: 14, alignSelf: "center" }}
+              />
             ) : null}
           </View>
         );
