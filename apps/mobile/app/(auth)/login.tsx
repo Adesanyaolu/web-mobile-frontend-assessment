@@ -25,6 +25,7 @@ export default function Login() {
 
   const onSubmit = (data: LoginFormData) => {
     console.log("Login form submitted:", data);
+    router.replace("/(protected)/dashboard");
   };
 
   return (

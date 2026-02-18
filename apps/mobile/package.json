@@ -12,7 +12,6 @@
     "test": "jest --watchAll=false",
     "test:watch": "jest --watchAll"
   },
-
   "jest": {
     "preset": "react-native",
     "moduleNameMapper": {
@@ -22,7 +21,6 @@
       "node_modules/(?!(@react-native|react-native|react-native-css-interop|nativewind|@rn-primitives|expo|@expo|expo-router|expo-modules-core|expo-font|expo-asset|expo-constants|expo-file-system|expo-image|expo-haptics|expo-linking|expo-splash-screen|expo-status-bar|expo-symbols|expo-system-ui)/)"
     ]
   },
-
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
     "@hookform/resolvers": "^5.2.2",
@@ -52,6 +50,7 @@
     "react-hook-form": "^7.71.1",
     "react-native": "0.81.5",
     "react-native-gesture-handler": "~2.28.0",
+    "react-native-reanimated": "~4.1.1",
     "react-native-safe-area-context": "^5.6.2",
     "react-native-screens": "~4.16.0",
     "react-native-web": "~0.21.0",
