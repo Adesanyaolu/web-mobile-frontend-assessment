@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 
 const Navbar = () => {
@@ -10,25 +9,23 @@ const Navbar = () => {
           <div className="flex items-center gap-12">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-6 h-6 rounded-full bg-[#1e293b] relative flex items-center justify-center">
-                {/* Visual approximation of the logo dot/icon */}
-                <div className="w-2 h-2 rounded-full bg-white opacity-90"></div>
+              <div className="w-4 h-4 rounded-full bg-[#0A415C] relative flex items-center justify-center">
               </div>
-              <span className="font-bold text-xl tracking-tight text-[#1e293b]">navlogo</span>
+              <span className="font-normal text-xl tracking-tight text-[#001414]">navlogo</span>
             </Link>
 
             {/* Desktop Nav Links */}
             <div className="hidden md:flex items-center gap-8">
-              <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="#" className="text-sm font-medium text-[#515867] hover:text-[#001414] transition-colors">
                 Products
               </Link>
-              <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="#" className="text-sm font-medium text-[#515867] hover:text-[#001414] transition-colors">
                 Pricing
               </Link>
-              <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="#" className="text-sm font-medium text-[#515867] hover:text-[#001414] transition-colors">
                 Docs
               </Link>
-              <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="#" className="text-sm font-medium text-[#515867] hover:text-[#001414] transition-colors">
                 Blog
               </Link>
             </div>
@@ -36,10 +33,10 @@ const Navbar = () => {
 
           {/* Right Side: Auth Actions */}
           <div className="flex items-center gap-6">
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 hidden sm:block">
+            <Link href="#" className="text-sm font-medium text-[#515867] hover:text-[#001414] hidden sm:block">
               Sign In
             </Link>
-            <button className="bg-[#585bf1] text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-[#4f51d6] transition-all shadow-sm">
+            <button className="bg-[#5050EC] text-white px-4 py-2.5 rounded-md text-sm font-bold hover:bg-[#4f51d6] transition-all shadow-sm">
               Start Free Trial
             </button>
           </div>

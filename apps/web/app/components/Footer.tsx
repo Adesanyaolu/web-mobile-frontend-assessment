@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -9,13 +10,11 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="max-w-xs">
             <Link href="/" className="flex items-center gap-2 group mb-4">
-              <div className="w-5 h-5 rounded-full bg-white relative flex items-center justify-center">
-                 {/* Footer logo variant white */}
-                 <div className="w-1.5 h-1.5 rounded-full bg-[#020b10]"></div>
+              <div className="w-4 h-4 rounded-full bg-white relative flex items-center justify-center">
               </div>
-              <span className="font-bold text-xl tracking-tight text-white">navlogo</span>
+              <span className="font-normal text-xl tracking-tight text-white">navlogo</span>
             </Link>
-            <p className="text-sm leading-relaxed text-gray-400">
+            <p className="text-sm leading-relaxed text-[#8D95A5]">
               Web scraping API handles all anti-bot bypass for you with rotating proxies, headless browsers and more.
             </p>
           </div>
@@ -24,15 +23,17 @@ const Footer = () => {
           <div className="flex gap-8">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-1">
-                 <span className="text-white font-bold text-lg">Capterra</span>
+                <Image src="/captera.png" alt="Capterra Logo" width={20} height={20} className="object-contain z-50" />
+                 <span className="text-white font-semibold text-sm">Capterra</span>
               </div>
-              <div className="flex text-amber-500">★★★★★</div>
+              <div className="flex text-[#FFAA00]">★★★★★</div>
             </div>
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-1">
-                 <span className="text-white font-bold text-lg">G2</span>
+                 <Image src="/g2.png" alt="Capterra Logo" width={20} height={20} className="object-contain z-50" />
+                 <span className="text-white font-semibold text-sm">G2</span>
               </div>
-              <div className="flex text-amber-500">★★★★★</div>
+              <div className="flex text-[#EF492D]">★★★★★</div>
             </div>
           </div>
         </div>
@@ -41,10 +42,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 gap-4">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <span className="text-xs font-medium text-gray-400">All services are online</span>
+            <span className="text-sm font-medium text-[#8D95A5]">All services are online</span>
           </div>
 
-          <p className="text-xs text-gray-500">
+          <p className="text-sm text-[#8D95A5]">
             © 2024 Navlogo. All rights reserved.
           </p>
           

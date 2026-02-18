@@ -37,8 +37,8 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar />
 
-      <main className="flex-grow">
-        <section className="py-16 md:py-24">
+      <main className="grow">
+        <section className="py-16">
           <div className="container-custom">
             <IntegrationSelector
               origins={origins}
