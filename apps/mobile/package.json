@@ -13,6 +13,16 @@
     "test:watch": "jest --watchAll"
   },
 
+  "jest": {
+    "preset": "react-native",
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/$1"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@react-native|react-native|react-native-css-interop|nativewind|@rn-primitives|expo|@expo|expo-router|expo-modules-core|expo-font|expo-asset|expo-constants|expo-file-system|expo-image|expo-haptics|expo-linking|expo-splash-screen|expo-status-bar|expo-symbols|expo-system-ui)/)"
+    ]
+  },
+
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
     "@hookform/resolvers": "^5.2.2",

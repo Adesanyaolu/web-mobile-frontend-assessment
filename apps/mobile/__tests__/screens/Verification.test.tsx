@@ -1,6 +1,17 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import VerificationScreen from "@/app/(auth)/verification";
+
+const safeAreaMetrics = {
+  frame: { x: 0, y: 0, width: 390, height: 844 },
+  insets: { top: 47, left: 0, right: 0, bottom: 34 },
+};
+
+const renderWithProviders = (ui: React.ReactElement) =>
+  render(
+    <SafeAreaProvider initialMetrics={safeAreaMetrics}>{ui}</SafeAreaProvider>
+  );
 
 const mockPush = jest.fn();
 const mockReplace = jest.fn();
@@ -22,18 +33,18 @@ describe("Verification Screen", () => {
   });
 
   it("renders the phone step by default", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
     expect(getByText("Enter your phone number")).toBeTruthy();
     expect(getByText("Send Code")).toBeTruthy();
   });
 
   it("renders the phone input display", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
     expect(getByText("+1-000-000-000")).toBeTruthy();
   });
 
   it("renders the custom keypad", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
     // Should show number keys
     expect(getByText("1")).toBeTruthy();
     expect(getByText("5")).toBeTruthy();
@@ -42,7 +53,7 @@ describe("Verification Screen", () => {
   });
 
   it("updates phone number when keypad keys are pressed", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
 
     fireEvent.press(getByText("5"));
     fireEvent.press(getByText("5"));
@@ -52,7 +63,7 @@ describe("Verification Screen", () => {
   });
 
   it("handles backspace on phone number", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
 
     fireEvent.press(getByText("1"));
     fireEvent.press(getByText("2"));
@@ -67,7 +78,7 @@ describe("Verification Screen", () => {
   });
 
   it("limits phone number to 10 digits", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
 
     // Enter 10 digits
     for (let i = 0; i < 12; i++) {
@@ -78,7 +89,7 @@ describe("Verification Screen", () => {
   });
 
   it("transitions to OTP step when Send Code is pressed", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
 
     fireEvent.press(getByText("Send Code"));
 
@@ -87,7 +98,7 @@ describe("Verification Screen", () => {
   });
 
   it("allows OTP input via keypad on OTP step", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText, getAllByText } = renderWithProviders(<VerificationScreen />);
 
     // Move to OTP step
     fireEvent.press(getByText("Send Code"));
@@ -99,15 +110,15 @@ describe("Verification Screen", () => {
     fireEvent.press(getByText("3"));
     fireEvent.press(getByText("4"));
 
-    // OTP digits should be visible
-    expect(getByText("1")).toBeTruthy();
-    expect(getByText("2")).toBeTruthy();
-    expect(getByText("3")).toBeTruthy();
-    expect(getByText("4")).toBeTruthy();
+    // OTP digits should be visible (each digit appears on both keypad and OTP display)
+    expect(getAllByText("1").length).toBeGreaterThanOrEqual(2);
+    expect(getAllByText("2").length).toBeGreaterThanOrEqual(2);
+    expect(getAllByText("3").length).toBeGreaterThanOrEqual(2);
+    expect(getAllByText("4").length).toBeGreaterThanOrEqual(2);
   });
 
   it("handles OTP backspace", () => {
-    const { getByText, queryByText } = render(<VerificationScreen />);
+    const { getByText, getAllByText } = renderWithProviders(<VerificationScreen />);
 
     fireEvent.press(getByText("Send Code"));
 
@@ -117,13 +128,14 @@ describe("Verification Screen", () => {
     // Backspace the last digit
     fireEvent.press(getByText("backspace-outline"));
 
-    // "2" from the OTP input should be gone (though "2" still exists on keypad)
-    // We verify the OTP area only has "1"
-    expect(getByText("1")).toBeTruthy();
+    // "2" from the OTP input should be gone — only the keypad "2" remains
+    expect(getAllByText("2")).toHaveLength(1);
+    // "1" still in both keypad and OTP display
+    expect(getAllByText("1").length).toBeGreaterThanOrEqual(2);
   });
 
   it("shows Resend Code button on OTP step", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
 
     fireEvent.press(getByText("Send Code"));
 
@@ -131,7 +143,7 @@ describe("Verification Screen", () => {
   });
 
   it("navigates to welcome on verify", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
 
     fireEvent.press(getByText("Send Code"));
     fireEvent.press(getByText("Verify Accounts"));
@@ -140,7 +152,7 @@ describe("Verification Screen", () => {
   });
 
   it("navigates back from phone step", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
 
     // Press the back button (renders Ionicons "chevron-back" as text)
     fireEvent.press(getByText("chevron-back"));
@@ -149,7 +161,7 @@ describe("Verification Screen", () => {
   });
 
   it("goes back to phone step from OTP step on back press", () => {
-    const { getByText } = render(<VerificationScreen />);
+    const { getByText } = renderWithProviders(<VerificationScreen />);
 
     // Transition to OTP
     fireEvent.press(getByText("Send Code"));
